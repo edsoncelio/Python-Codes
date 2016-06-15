@@ -1,5 +1,6 @@
 
 import os
+import random
 
   
 ''' Regras :
@@ -16,18 +17,12 @@ As regras de Pedra-papel-tesoura-lagarto-Spock sao:
     Spock vaporiza pedra
     Pedra quebra tesoura
 '''
+  
 
 
-def condicoes_game(play1,play2):
-    pass
-
-
-def modo2play():
+def cnd_game(play1,play2):
 	jogadas = ['pedra','papel','tesoura','lagarto','spock']	
-	play1 = raw_input('Jogador 1 : ')
-	os.system('clear')
-	play2 = raw_input('Jogador 2 : ')
-	os.system('clear')
+	
 	if (play1 == jogadas[0] and play2 == jogadas[1]) or (play1 == jogadas[1] and play2 == jogadas[0]):
 		print 'papel cobre pedra'
 	elif (play1 == jogadas[0] and play2 == jogadas[2]) or (play1 == jogadas[2] and play2 == jogadas[0]):
@@ -50,7 +45,21 @@ def modo2play():
 		print 'lagarto envenena spock'
 	else:
 		print 'empate, vixi'							
-   
+
+def mode2play():
+    play1 = raw_input('Jogador 1 : ')
+    play2 = raw_input('Jogador 2 : ')
+    cnd_game(play1,play2)
+     
+
+def modobot():
+	jogadas = ['pedra','papel','tesoura','lagarto','spock']
+	play1 = raw_input('Jogador 1 : ')
+	if str(play1) in jogadas:
+		for i in range(len(jogadas)):
+		    bot = random.choice(jogadas)
+		print 'jogada do bot : '+bot
+		cnd_game(play1,bot)
 
 class __main__():
 	print '''
@@ -65,14 +74,16 @@ entr = raw_input('''Escolha uma opcao:'
 
 if entr == '1':
    print 'modo contra bot'
-   print 'em desenvolvimento ainda '
-   exit(1)
-   
+   modobot()
+   resp = raw_input('again? y/n: ')
+   while resp !='n':
+	   modobot()
+	   resp = raw_input('again? y/n: ')
 else:
    print 'modo two players'
-   modo2play()
+   mode2play()
    resp = raw_input('again? y/n: ')
 while resp != 'n':
-	modo2play()
+	mode2play()
 	resp = raw_input('again? y/n: ')	
 
