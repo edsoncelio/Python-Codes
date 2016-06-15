@@ -1,4 +1,7 @@
 
+import os
+
+
 def condicoes_game(play1,play2):
     pass
 
@@ -6,7 +9,31 @@ def condicoes_game(play1,play2):
 def modo2play():
 	jogadas = ['pedra','papel','tesoura','lagarto','spock']	
 	play1 = raw_input('Jogador 1 : ')
+	os.system('clear')
 	play2 = raw_input('Jogador 2 : ')
+	os.system('clear')
+	if (play1 == jogadas[0] and play2 == jogadas[1]) or (play1 == jogadas[1] and play2 == jogadas[0]):
+		print 'papel cobre pedra'
+	elif (play1 == jogadas[0] and play2 == jogadas[2]) or (play1 == jogadas[2] and play2 == jogadas[0]):
+		print 'pedra quebra tesoura'
+	elif (play1 == jogadas[0] and play2 == jogadas[3]) or (play1 == jogadas[3] and play2 == jogadas[0]):
+		print 'pedra esmaga lagarto'
+	elif (play1 == jogadas[0] and play2 == jogadas[4]) or (play1 == jogadas[4] and play2 == jogadas[0]):			
+		print 'spock vaporiza pedra'
+	elif (play1 == jogadas[1] and play2 == jogadas[2]) or (play1 == jogadas[2] and play2 == jogadas[1]):
+		print 'tesoura corta papel'
+	elif (play1 == jogadas[1] and play2 == jogadas[3]) or (play1 == jogadas[3] and play2 == jogadas[1]):
+		print 'lagarto come papel'
+	elif (play1 == jogadas[1] and play2 == jogadas[4]) or (play1 == jogadas[4] and play2 == jogadas[1]):
+		print 'papel refuta spock'
+	elif (play1 == jogadas[2] and play2 == jogadas[3]) or (play1 == jogadas[3] and play2 == jogadas[2]):
+		print 'tesoura decapita lagarto'
+	elif (play1 == jogadas[2] and play2 == jogadas[4]) or (play1 == jogadas[2] and play2 == jogadas[4]):
+		print 'spock derrete tesoura'
+	elif (play1 == jogadas[3] and play2 == jogadas[4]) or (play1 == jogadas[4] and play2 == jogadas[3]):
+		print 'lagarto envenena spock'
+	else:
+		print 'empate, vixi'							
    
   
 
@@ -29,9 +56,9 @@ As regras de Pedra-papel-tesoura-lagarto-Spock sao:
 
 class __main__():
 	print '''
-Exemplo em python
+Joguim em Py
 Regras:
-As opcoes sao:	pedra,papel,tesoura,lagarto,spock'''
+As opcoes de jogadas sao: pedra,papel,tesoura,lagarto,spock'''
 
 entr = raw_input('''Escolha uma opcao:'
 1- Jogar com o bot
@@ -40,6 +67,8 @@ entr = raw_input('''Escolha uma opcao:'
 
 if entr == '1':
    print 'modo contra bot'
+   print 'em desenvolvimento ainda '
+   exit(1)
    
 else:
    print 'modo two players'
