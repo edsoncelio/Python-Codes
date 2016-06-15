@@ -1,6 +1,22 @@
 
 import os
 
+  
+''' Regras :
+As regras de Pedra-papel-tesoura-lagarto-Spock sao:
+
+    Tesoura corta papel
+    Papel cobre pedra
+    Pedra esmaga lagarto
+    Lagarto envenena Spock
+    Spock esmaga (ou derrete) tesoura
+    Tesoura decapita lagarto
+    Lagarto come papel
+    Papel refuta Spock
+    Spock vaporiza pedra
+    Pedra quebra tesoura
+'''
+
 
 def condicoes_game(play1,play2):
     pass
@@ -35,24 +51,6 @@ def modo2play():
 	else:
 		print 'empate, vixi'							
    
-  
-
-
-
-''' Regras :
-As regras de Pedra-papel-tesoura-lagarto-Spock sao:
-
-    Tesoura corta papel
-    Papel cobre pedra
-    Pedra esmaga lagarto
-    Lagarto envenena Spock
-    Spock esmaga (ou derrete) tesoura
-    Tesoura decapita lagarto
-    Lagarto come papel
-    Papel refuta Spock
-    Spock vaporiza pedra
-    Pedra quebra tesoura
-'''
 
 class __main__():
 	print '''
