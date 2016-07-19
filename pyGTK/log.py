@@ -23,6 +23,7 @@
 
 # simple log viewer using gtk
 #execute with root user 
+import os
 import subprocess
 import gi
 gi.require_version('Gtk','3.0')
@@ -53,6 +54,7 @@ class MyWin(Gtk.Window):
 		self.textview.set_editable(False)
 		self.textview.set_cursor_visible(False)
 		self.textbuffer = self.textview.get_buffer()
+		self.textbuffer.set_text("Select the log in the combo box in the right")
 		scrolledwindow.add(self.textview)
 			
          	
@@ -71,7 +73,9 @@ class MyWin(Gtk.Window):
 		Gtk.main_quit()
 		
 	def create_combo(self):
-		logs = ["Secure", "Messages", "Boot", "Firewall"]
+		out = subprocess.check_output(['find' ,'/var/log/','-maxdepth','1','-type','f'])
+		out_spl = out.split('\n')
+		logs = out_spl
 		log_combo = Gtk.ComboBoxText()
 		log_combo.set_entry_text_column(0)
 		log_combo.connect("changed", self.on_log_combo_changed)
@@ -79,17 +83,11 @@ class MyWin(Gtk.Window):
 			log_combo.append_text(log)
 		self.grid.attach(log_combo,15,0,5,1)           #see later
 	
-	def select_log(self,text="Secure"):
-		if text == "Secure":
-			return self.textbuffer.set_text(subprocess.check_output(['cat','/var/log/secure']))
-		elif text == "Messages":
-			return self.textbuffer.set_text(subprocess.check_output(['cat','/var/log/messages']))
-		elif text == "Boot":
-			return self.textbuffer.set_text(subprocess.check_output(['cat','/var/log/boot.log']))
-		elif text == "Firewall":
-			return self.textbuffer.set_text(subprocess.check_output(['cat','/var/log/firewalld']))
-		else:
-			exit(1)
+	def select_log(self,text):
+		_entry = ['cat']
+		_entry.append(text)
+		print text
+		return self.textbuffer.set_text(subprocess.check_output(_entry))
 	
 	def on_log_combo_changed(self, combo):		
 			text = combo.get_active_text()
@@ -110,9 +108,11 @@ Gtk.main()
 '''
 Features to add :
 *select why log want see (secure,message,boot.log, ...) done!
+*select all the logs done!
 *scroll bar done !
 *search entry 
 *real time 
 *button done !
 '''
+
 
