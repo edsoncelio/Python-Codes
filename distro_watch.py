@@ -33,6 +33,7 @@ def init_feed(url,qtd):
 	print (entr_feed.feed.description)
 	for i in range(0,qtd):
 		print (entr_feed.entries[i].title)
+		print (entr_feed.entries[i].link)
 		print (entr_feed.entries[i].updated)
 #		print (entr_feed.entries[i].enclosures[0])            #link to download of any file
 		print (entr_feed.entries[i].description)
