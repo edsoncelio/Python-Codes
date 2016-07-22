@@ -22,7 +22,7 @@
 import feedparser
 
 
-#distro watch news, u can use other feeds, just change the variable url
+#distro watch news, u can use other feeds, just change the url variable
 
 
 
