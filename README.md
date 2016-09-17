@@ -9,3 +9,5 @@ qual log deseja visualizar.
 3. **distro_watch.py** : leitor de feed do site [distrowatch](http://distrowatch.com/)
 usando a biblioteca *feedparser* do python.
 
+4. **it-ebooks.py** : implementação em python usando a api do it-ebooks open.
+[IT eBooks Open API v.1](http://it-ebooks-api.info/)
