@@ -1,6 +1,6 @@
 # Códigos e Aplicações em Python
 
-### Diretórios e Arquivos :
+### Diretórios e Arquivos existentes :
 1. **lib-pylinux** : funções de administração de sistemas linux em python
 2. **pyGTK**: aplicações usando gtk 3 com o python
  * **log.py** : visualizador de logs de sistemas linux, o usuário tem a opção de selecionar
